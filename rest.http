@@ -1,0 +1,37 @@
+###Get All Products
+GET http://localhost:3000/products
+
+### Create a product
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name":"Android New",
+    "price":15777,
+    "description":"Lorem ipsummmmmmm",
+ 
+}
+
+### Get a product by ID
+GET http://localhost:3000/products/id
+
+### Update a product by ID
+PATCH  http://localhost:3000/products/id
+Content-Type:application/json
+
+{
+    "name":"Android A2999",
+    "price":"2000",
+    "description":"Hello this is new product"
+}
+
+### Delete a product by ID
+DELETE  http://localhost:3000/products/id
+
+###Error handling 404 route not found
+GET http://localhost:3000/
+
+###
+POST http://localhost:3000/products/uploads
+
+
