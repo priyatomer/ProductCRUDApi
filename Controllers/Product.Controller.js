@@ -49,10 +49,22 @@ module.exports = {
 		try {
 			const product = new Product({
 				name: req.body.name,
+				otherName: req.body.name,
 				image: req.file.path,
 				description: req.body.description,
+				otherDescription: req.body.otherDescription,
 				price: req.body.price
 			});
+			product.name = {
+				// defines all languages in one call using an object
+				en: req.body.name,
+				fr: req.body.otherName
+			};
+			product.description = {
+				// defines all languages in one call using an object
+				en: req.body.description,
+				fr: req.body.otherDescription
+			};
 			const result = await product.save();
 			res.send(result);
 		} catch (error) {
@@ -70,9 +82,21 @@ module.exports = {
 			const id = req.params.id;
 			const updates = {
 				name: req.body.name,
+				otherName: req.body.name,
 				image: req.file.path,
 				description: req.body.description,
+				otherDescription: req.body.otherDescription,
 				price: req.body.price
+			};
+			updates.name = {
+				// defines all languages in one call using an object
+				en: req.body.name,
+				fr: req.body.otherName
+			};
+			updates.description = {
+				// defines all languages in one call using an object
+				en: req.body.description,
+				fr: req.body.otherDescription
 			};
 			const options = { new: true };
 			const updatedProduct = await Product.findByIdAndUpdate(id, updates, options);
